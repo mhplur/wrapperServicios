@@ -1,24 +1,24 @@
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\interno\AuthTokenImpl.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoBeneficiarioResponse.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoRespuestaRegistroCivil.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\security\PasswordCallbackHandler.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\SRIService.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\SRIServiceImpl.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\dto\SumRequest.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\AuthTokenInfo.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\dto\SriResponse.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosSiscomtec.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosInternosImpl.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\interno\ConsultaServiciosGubernamentales.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServicioPersonasNaturalesImp.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoBeneficiario.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServicioPersonasNaturales.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\dto\SumResponse.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosSiscomtecImpl.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoRespuestaSri.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\RespuestaConsultaRegistrados.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\servicio\ConsultaExternaServicio.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\AuthTokenVo.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\interno\AuthToken.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosInternos.java
-C:\Users\ABL\Documents\agroseguro anteriores proyectos\alter\ServiciosIn\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoAval.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\dto\SumRequest.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServicioPersonasNaturales.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoBeneficiario.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoAval.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosInternosImpl.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\interno\AuthToken.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\SRIService.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosInternos.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServicioPersonasNaturalesImp.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoBeneficiarioResponse.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoRespuestaSri.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\interno\ConsultaServiciosGubernamentales.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\security\PasswordCallbackHandler.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\RespuestaConsultaRegistrados.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\SRIServiceImpl.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\dto\SumResponse.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\interno\AuthTokenImpl.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\servicio\ConsultaExternaServicio.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosSiscomtec.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\AuthTokenVo.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\AuthTokenInfo.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\dto\SriResponse.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\ServiciosSiscomtecImpl.java
+D:\Documents\Desarrollo Sias\wrapperservicios\src\main\java\ec\gob\agricultura\dsii\sw\vo\VoRespuestaRegistroCivil.java

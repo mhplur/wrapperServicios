@@ -24,7 +24,7 @@ import ec.gob.agricultura.dsii.sw.vo.VoRespuestaSri;
 
 @Service
 public class AuthTokenImpl {
-
+	public static final String REST_SERVICE_URI_DR="http://10.10.1.33:8080/apiserviciosexternos-0.0.1-SNAPSHOT";
 	public static final String REST_SERVICE_URI = "http://10.10.1.17:8080/wsministerial";
 	public static final String AUTH_SERVER_URI = "http://10.10.1.17:8080/wsministerial/oauth/token";
 	public static final String QPM_PASSWORD_GRANT = "?grant_type=password&username=userprueba&password=acceso";
@@ -91,19 +91,23 @@ public class AuthTokenImpl {
     
     public VoRespuestaRegistroCivil getDatosCiudadano(AuthTokenVo tokenInfo, String parametro){
     	Assert.notNull(tokenInfo, "Authenticate first please......");
+    	System.out.println(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/2/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token());
         RestTemplate restTemplate = new RestTemplate();
         VoRespuestaRegistroCivil respuesta = null;
 		try {
 			HttpEntity<String> request = new HttpEntity<String>(getHeaders());
 			//modificado por paul
-			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/2/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token(),
+//			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/2/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token(),
+//					HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
+//			
+			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI_DR+"/utilitarios/registrocivildatosciudadano/"+parametro,
 					HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
 			respuesta = response.getBody();
 	    }catch(Exception e) {
 			try {
 			HttpEntity<String> request = new HttpEntity<String>(getHeaders());
 			//modificado por paul
-			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/1/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token(),
+			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI_DR+"/utilitarios/registrocivildatosciudadano/"+parametro,
 					HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
 			respuesta = response.getBody();
 			}catch(Exception ex) {}
@@ -113,15 +117,20 @@ public class AuthTokenImpl {
 			try {
 			HttpEntity<String> request = new HttpEntity<String>(getHeaders());
 			//modificado por paul
-			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/2/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token(),
+			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI_DR+"/utilitarios/registrocivildatosciudadano/"+parametro,
 					HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
 			respuesta = response.getBody();
 			}catch(Exception e) {}
 		}
-		 
+		
+		System.out.println("xxxxxxxxxxxxxxxxxxxx");
        // LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) response.getBody();
+		 if(respuesta.getGenero()==null)
+			 if(respuesta.getSexo().equals("HOMBRE"))  respuesta.setGenero("MASCULINO");
+			 else respuesta.setGenero("FEMENINO");
+		
 	    if(respuesta.getEstadoCivil()==null) respuesta.setEstadoCivil("SOLTERO");
-		if(respuesta.getDomicilio()==null) respuesta.setDomicilio("NO_IDEN/NO_IDEN/NO_IDEN");
+		if(respuesta.getDomicilio()==null) respuesta.setDomicilio("");
 		
         return respuesta;
     }
