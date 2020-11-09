@@ -10,5 +10,5 @@ Proyecto SOAP sin seguridades que enruta a WSMinisterial para uso interno.
 * WSMinisterial
 
 ## Servidores Wildfly 11
-* Producción: 10.10.1.17
+* Producción: 10.10.1.18
 * Pruebas: 10.10.1.18

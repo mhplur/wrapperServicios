@@ -16,6 +16,8 @@ import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 import com.google.gson.internal.LinkedTreeMap;
 
+import ec.gob.agricultura.dsii.sw.env.Config;
+import ec.gob.agricultura.dsii.sw.env.MyEnviroment;
 import ec.gob.agricultura.dsii.sw.vo.AuthTokenVo;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiario;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiarioResponse;
@@ -24,11 +26,11 @@ import ec.gob.agricultura.dsii.sw.vo.VoRespuestaSri;
 
 @Service
 public class AuthTokenImpl {
-	public static final String REST_SERVICE_URI_DR="http://10.10.1.33:8080/apiserviciosexternos-0.0.1-SNAPSHOT";
-	public static final String REST_SERVICE_URI = "http://10.10.1.17:8080/wsministerial";
-	public static final String AUTH_SERVER_URI = "http://10.10.1.17:8080/wsministerial/oauth/token";
-	public static final String QPM_PASSWORD_GRANT = "?grant_type=password&username=userprueba&password=acceso";
-	public static final String QPM_ACCESS_TOKEN = "?access_token=";
+	public static final String REST_SERVICE_URI_DR=Config.obtenerValorParametro("REGISTRO_CIVIL_NEW");;
+	public static final String REST_SERVICE_URI = Config.obtenerValorParametro("REGISTRO_CIVIL_OLD");//"http://10.10.1.18:8080/wsministerial";
+	public static final String AUTH_SERVER_URI = Config.obtenerValorParametro("CRED_WSMINIS_AUTH_SERVER_URI");//"http://10.10.1.18:8080/wsministerial/oauth/token";
+	public static final String QPM_PASSWORD_GRANT = Config.obtenerValorParametro("CRED_WSMINIS_QPM_PASSWORD_GRANT");//"?grant_type=password&username=userprueba&password=acceso";
+	public static final String QPM_ACCESS_TOKEN = Config.obtenerValorParametro("CRED_WSMINIS_QPM_ACCESS_TOKEN"); //"?access_token=";
 	Logger logger = Logger.getLogger(AuthTokenImpl.class.getName());
 /*	public static final String REST_SERVICE_URI = "http://servicios.agricultura.gob.ec/interoperabilidad";
 	public static final String AUTH_SERVER_URI = "http://servicios.agricultura.gob.ec/interoperabilidad/oauth/token";
@@ -89,10 +91,8 @@ public class AuthTokenImpl {
 	
 //    * Send a GET request to get a specific user.
     
-    public VoRespuestaRegistroCivil getDatosCiudadano(AuthTokenVo tokenInfo, String parametro){
-    	Assert.notNull(tokenInfo, "Authenticate first please......");
-    	System.out.println(REST_SERVICE_URI+"/user/consultaciudadano/"+parametro+"/2/"+QPM_ACCESS_TOKEN+tokenInfo.getAccess_token());
-        RestTemplate restTemplate = new RestTemplate();
+    public VoRespuestaRegistroCivil getDatosCiudadanoNew(AuthTokenVo tokenInfo, String parametro){
+    	 RestTemplate restTemplate = new RestTemplate();
         VoRespuestaRegistroCivil respuesta = null;
 		try {
 			HttpEntity<String> request = new HttpEntity<String>(getHeaders());
@@ -120,7 +120,9 @@ public class AuthTokenImpl {
 			ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(REST_SERVICE_URI_DR+"/utilitarios/registrocivildatosciudadano/"+parametro,
 					HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
 			respuesta = response.getBody();
-			}catch(Exception e) {}
+			}catch(Exception e) {
+				System.out.println("SE HA DETECTADO UN PROBLEMA EN EL SERVICIO, PORFAVOR REVISE SU BUEN FUNCIONAMIENTO");
+			}
 		}
 		
 		System.out.println("xxxxxxxxxxxxxxxxxxxx");
