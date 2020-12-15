@@ -20,9 +20,6 @@ public class ServiciosInternosImpl implements ServiciosInternos {
 		VoRespuestaRegistroCivil registroCivil= new VoRespuestaRegistroCivil();
 		registroCivil= tokenImpl.getDatosCiudadanoNew(authTokenVo,request.getParametro());
 		sumResponse.setRespuestaRegistroCivil(registroCivil);
-		
-//		ServiciosRNAUtil sr = new ServiciosRNAUtil();
-//		sr.testPropiedades();
 		return sumResponse;
 	}
 

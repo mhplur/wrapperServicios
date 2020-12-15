@@ -13,11 +13,11 @@ public interface ServicioPersonasNaturales {
 	
 	@WebMethod(operationName="consultarOld")
 	@WebResult(name="response")
-	VoBeneficiarioResponse consultarOld(@WebParam(name="cedula")String cedula);
+	VoBeneficiarioResponse consultarRNA(@WebParam(name="cedula")String cedula);
 	
 	@WebMethod(operationName="registrarOld")
 	@WebResult(name="response")
-	VoBeneficiarioResponse registrarOld(@WebParam(name="cedula")VoBeneficiario beneficiario);
+	VoBeneficiarioResponse registrarRNA(@WebParam(name="cedula")VoBeneficiario beneficiario);
 	
 	
 	@WebMethod(operationName="consultar")

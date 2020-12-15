@@ -84,7 +84,7 @@ public class ServiciosRNAUtil {
 			HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(
 					parametersMap, headers);
 			ResponseEntity<TokenResponseDTO> response = restTemplate.postForEntity(url, request, TokenResponseDTO.class);
-			//System.out.println(response.getBody());
+			System.out.println(response.getBody());
 			return response.getBody();
 		} catch (Exception e) {
 			System.out.println("PROBLEMA EN LA OBTENCIÓN DEL TOKEN, REVICE LAS CREDENCIALES");

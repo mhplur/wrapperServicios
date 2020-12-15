@@ -124,15 +124,39 @@ public class AuthTokenImpl {
 				System.out.println("SE HA DETECTADO UN PROBLEMA EN EL SERVICIO, PORFAVOR REVISE SU BUEN FUNCIONAMIENTO");
 			}
 		}
-		
-		System.out.println("xxxxxxxxxxxxxxxxxxxx");
        // LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) response.getBody();
-		 if(respuesta.getGenero()==null)
-			 if(respuesta.getSexo().equals("HOMBRE"))  respuesta.setGenero("MASCULINO");
-			 else respuesta.setGenero("FEMENINO");
-		
-	    if(respuesta.getEstadoCivil()==null) respuesta.setEstadoCivil("SOLTERO");
-		if(respuesta.getDomicilio()==null) respuesta.setDomicilio("");
+		if(respuesta.getNUI()!="" && respuesta.getNUI()!=null) {
+			 if(respuesta.getGenero()==null)
+				 if(respuesta.getSexo().equals("HOMBRE"))  respuesta.setGenero("MASCULINO");
+				 else respuesta.setGenero("FEMENINO");
+			
+		    if(respuesta.getEstadoCivil()==null) respuesta.setEstadoCivil("SOLTERO");
+			if(respuesta.getDomicilio()==null) respuesta.setDomicilio("NI/NI/NI");
+			//depurar espacios
+			respuesta.setCalle(respuesta.getCalle().trim());
+			respuesta.setCodigoDomicilio(respuesta.getCodigoDomicilio().trim());
+			respuesta.setCondicionCedulado(respuesta.getCondicionCedulado().trim());
+			respuesta.setConyuge(respuesta.getConyuge().trim());
+			respuesta.setNombrePadre(respuesta.getNombrePadre().trim());
+			respuesta.setNombreMadre(respuesta.getNombreMadre().trim());
+			respuesta.setDomicilio(respuesta.getDomicilio().trim());
+			respuesta.setError(respuesta.getError().trim());
+			respuesta.setCodigoError(respuesta.getCodigoError().trim());
+			respuesta.setEstadoCivil(respuesta.getEstadoCivil().trim());
+			respuesta.setFechaInscripcionGenero(respuesta.getFechaInscripcionGenero().trim());
+			respuesta.setFechaNacimiento(respuesta.getFechaNacimiento().trim());
+			respuesta.setGenero(respuesta.getGenero().trim());
+			respuesta.setInstruccion(respuesta.getInstruccion().trim());
+			respuesta.setLugarInscripcionGenero(respuesta.getLugarInscripcionGenero().trim());
+			respuesta.setLugarNacimiento(respuesta.getLugarNacimiento().trim());
+			respuesta.setNombre(respuesta.getNombre().trim());
+			respuesta.setNumeroCasa(respuesta.getNumeroCasa().trim());
+			respuesta.setSexo(respuesta.getSexo().trim());
+			respuesta.setFechaDefuncion(respuesta.getFechaDefuncion().trim());
+			respuesta.setNacionalidad(respuesta.getNacionalidad().trim());
+			respuesta.setNUI(respuesta.getNUI().trim());
+			
+		}
 		
         return respuesta;
     }
