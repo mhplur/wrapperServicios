@@ -4,6 +4,9 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.validation.Valid;
+
+import org.springframework.validation.annotation.Validated;
 
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiario;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiarioResponse;
@@ -27,6 +30,6 @@ public interface ServicioPersonasNaturales {
 	
 	@WebMethod(operationName="registrar")
 	@WebResult(name="response")
-	VoBeneficiarioResponse registrar(@WebParam(name="cedula")VoBeneficiario beneficiario);
+	VoBeneficiarioResponse registrar(@Valid @WebParam(name="cedula")VoBeneficiario beneficiario);
 
 }

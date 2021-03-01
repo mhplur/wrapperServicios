@@ -1,8 +1,9 @@
 package ec.gob.agricultura.dsii.sw.vo;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
 public class VoBeneficiario {
 	@NotNull(message = "La cedula es obligatorio")
 	private String cedula;
@@ -16,7 +17,7 @@ public class VoBeneficiario {
 	@Email(message = "Correo no valido")
 	private String correo;
 	
-	@NotNull(message = "Los nombres sonobligatorio")
+	@NotNull(message = "Los nombres son obligatorios")
 	private String direccion;
 	
 	@NotNull(message = "Los nombres son obligatorio")

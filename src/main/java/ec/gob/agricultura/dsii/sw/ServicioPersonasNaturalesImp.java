@@ -1,8 +1,13 @@
 package ec.gob.agricultura.dsii.sw;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.client.HttpServerErrorException;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -13,6 +18,13 @@ import ec.gob.agricultura.dsii.sw.servicio.rna.ServiciosRNAUtil;
 import ec.gob.agricultura.dsii.sw.vo.AuthTokenVo;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiario;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiarioResponse;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+import javax.xml.ws.http.HTTPException;
 
 public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	@Deprecated
@@ -60,10 +72,19 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	}
 
 	@Override
-	public VoBeneficiarioResponse registrar(@Validated VoBeneficiario beneficiario) {
-		
+	public VoBeneficiarioResponse registrar(@Valid VoBeneficiario beneficiario) {
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+		Set<ConstraintViolation<VoBeneficiario>> constraintViolations = validator.validate(beneficiario);
+		List<String> messageError = constraintViolations.stream().map(c -> c.getMessage()).collect(Collectors.toList());
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
-		
+		if (messageError.size() >= 1) {
+			messageError = messageError.stream().distinct().collect(Collectors.toList());
+			response.setBenId(0);
+			response.setEstado("NO_REGISTRADO");
+			response.setObservacion(messageError.toString());
+			return response;
+		}
 		ServiciosRNAUtil srna = new ServiciosRNAUtil();
 		try {
 			JsonNode data=srna.buscarDataProductor(beneficiario.getCedula());
@@ -85,7 +106,20 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 				response.setBenId(data.get("perId").intValue());
 				response.setEstado("REGISTRADO");
 				response.setObservacion("Beneficiario registrado");
-			} catch (Exception ex) {
+			} 
+			catch (org.springframework.web.client.HttpClientErrorException exh) {
+				System.out.println("----------------------------- ERROR EN LA CREACIÓN DEL PRODUCTOR ------------------------------------------");
+				exh.printStackTrace();
+				response.setBenId(0);
+				response.setEstado("NO_REGISTRADO");
+				if(exh.getStatusCode()== HttpStatus.BAD_REQUEST)
+					response.setObservacion("Parametros enviados no validos CGTIC");
+				else if(exh.getStatusCode()== HttpStatus.INTERNAL_SERVER_ERROR)
+					response.setObservacion("Se produjo un error en el servicio de creación de productores CGTIC");
+				else
+					response.setObservacion("Se produjo un error en el servicio de creación de productores CGTIC");
+			}
+			catch (Exception ex) {
 				System.out.println("----------------------------- ERROR EN LA CREACIÓN DEL PRODUCTOR ------------------------------------------");
 				ex.printStackTrace();
 				response.setBenId(0);
