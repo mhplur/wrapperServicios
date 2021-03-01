@@ -2,6 +2,8 @@ package ec.gob.agricultura.dsii.sw;
 
 import java.io.IOException;
 
+import org.springframework.validation.annotation.Validated;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -13,7 +15,7 @@ import ec.gob.agricultura.dsii.sw.vo.VoBeneficiario;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiarioResponse;
 
 public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
-
+	@Deprecated
 	@Override
 	public VoBeneficiarioResponse consultarOld(String cedula) {
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
@@ -22,7 +24,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 		response=token.consultaPersonaNatural(authTokenVo, cedula); 
 		return response;
 	}
-
+	@Deprecated
 	@Override
 	public VoBeneficiarioResponse registrarOld(VoBeneficiario beneficiario) {
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
@@ -58,9 +60,10 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	}
 
 	@Override
-	public VoBeneficiarioResponse registrar(VoBeneficiario beneficiario) {
+	public VoBeneficiarioResponse registrar(@Validated VoBeneficiario beneficiario) {
 		
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
+		
 		ServiciosRNAUtil srna = new ServiciosRNAUtil();
 		try {
 			JsonNode data=srna.buscarDataProductor(beneficiario.getCedula());

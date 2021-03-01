@@ -13,14 +13,14 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_persona-0.0.1/productor/create";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_NEW"))
-			return "http://10.10.1.33:8080/apiserviciosexternos-0.0.1-SNAPSHOT";
+			return "http://10.10.1.121:8080/api_dinardap/api/dinardap/interoperador/1";
 		else if(nombreParametro.equalsIgnoreCase("AUTH"))
 			return "http://10.10.1.121:8080/servicio_seguridad-0.0.1/api/oauth/token";
 		
 		else if(nombreParametro.equalsIgnoreCase("username_apli"))
-			return "us_sisg";
+			return "us_sias";
 		else if(nombreParametro.equalsIgnoreCase("password_apli"))
-			return "us_sisg_2020";
+			return "us_sias_2020";
 		
 		else if(nombreParametro.equalsIgnoreCase("username"))
 			return "1722295126";
@@ -29,7 +29,7 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("grant_type"))
 			return "password";
 		else if(nombreParametro.equalsIgnoreCase("idapli"))
-			return "19";
+			return "17";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_AUTH_SERVER_URI"))
 			return "http://10.10.1.18:8080/wsministerial/oauth/token";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_PASSWORD_GRANT"))
@@ -49,14 +49,14 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_persona-0.0.1/productor/create";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_NEW"))
-			return "http://10.10.1.33:8080/apiserviciosexternos-0.0.1-SNAPSHOT";
+			return "http://10.10.1.121:8080/api_dinardap/api/dinardap/interoperador/1";
 		else if(nombreParametro.equalsIgnoreCase("AUTH"))
 			return "http://10.10.1.121:8080/servicio_seguridad-0.0.1/api/oauth/token";
 		
 		else if(nombreParametro.equalsIgnoreCase("username_apli"))
-			return "us_sisg";
+			return "us_sias";
 		else if(nombreParametro.equalsIgnoreCase("password_apli"))
-			return "us_sisg_2020";
+			return "us_sias_2020";
 		
 		else if(nombreParametro.equalsIgnoreCase("username"))
 			return "1722295126";
@@ -65,7 +65,7 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("grant_type"))
 			return "password";
 		else if(nombreParametro.equalsIgnoreCase("idapli"))
-			return "19";
+			return "17";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_AUTH_SERVER_URI"))
 			return "http://10.10.1.18:8080/wsministerial/oauth/token";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_PASSWORD_GRANT"))
@@ -86,7 +86,7 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
 			return "http://192.168.1.20:8080/micro_persona-0.0.1/productor/create";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_NEW"))
-			return "http://10.10.1.33:8080/apiserviciosexternos-0.0.1-SNAPSHOT";
+			return "http://192.168.1.20:8080/api_dinardap/api/dinardap/interoperador/1";
 		else if(nombreParametro.equalsIgnoreCase("AUTH"))
 			return "http://192.168.1.20:8080/servicio_seguridad-0.0.1/api/oauth/token"; //poner la local
 		

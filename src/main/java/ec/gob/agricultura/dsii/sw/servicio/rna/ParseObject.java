@@ -26,30 +26,22 @@ public class ParseObject {
 	public static JsonNode productorNuevoToProductorRNA(VoBeneficiario productorNuevo, JsonNode informacionServicios,TokenDto token)
 			throws JsonParseException, JsonMappingException, IOException {
 		Date fechaNacimiento = null;
+		//estudiar que codigo poner
 		String catidtiponacionalidad = "0";
 		String lugarnacimiento = "";
-//		if (informacionServicios!=null) {
-		//JsonNode servicioRegistroCivil = informacionServicios.get("registrocivil");
-		//catidtiponacionalidad = servicioRegistroCivil.get("catidtiponacionalidad").asText();
-		//if(informacionServicios!=null)
-		//	lugarnacimiento = servicioRegistroCivil.get("lugarnacimiento").asText();
-		//else lugarnacimiento =productorNuevo.getLugar_nacimiento();
-		//@SuppressWarnings("unused")
-		//JsonNode servicioSRI = informacionServicios.get("sri");
-		//JsonNode servicioCNE = informacionServicios.get("cne");
 		String na="NA";
 		String perRegUsu=token.getUsuarios().get(0).getUsuId().toString();
 		String pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 		String fechaActual =new SimpleDateFormat(pattern).format(new Date());
 		String productorRnaString= "{"+
 									"  \"catTipoIdentificacion\": 18,"+
-									//"  \"catGenero\": "+na+","+
-									//"  \"catEstadoCivil\":"+na+","+//añadir lógica para parsear strings por ids
+									"  \"catGenero\": "+productorNuevo.getGenero()+","+
+									"  \"catEstadoCivil\":"+productorNuevo.getEstadoCivil()+","+//añadir lógica para parsear strings por ids
 									"  \"perNombre\": \""+productorNuevo.getNombres()+"\","+
 									"  \"perApellido\": \""+productorNuevo.getApellidos()+"\","+
 									"  \"perNombres\": \""+productorNuevo.getNombresApellidosCompletos()+"\","+
 									"  \"perIdentificacion\": \""+productorNuevo.getCedula()+"\","+
-									//"  \"perFechaNac\": \""+fechaNacimiento+"\","+
+									"  \"perFechaNac\": \""+productorNuevo.getFechaNacimiento()+"\","+
 									"  \"perFuente\": \"SIAS\","+
 									"  \"perFuenteId\": 0,"+
 									"  \"perFuenteApli\": 17,"+
@@ -59,7 +51,7 @@ public class ParseObject {
 									"  \"perDirDomicilio\": \""+productorNuevo.getDireccion()+"\","+//quitar comillas
 									"  \"perTelefono\": \""+productorNuevo.getTelefono()+"\","+
 									"  \"perCelular\": \""+productorNuevo.getCelular()+"\","+
-									"  \"perCorreo\": \""+Util.fixEmail(productorNuevo.getCorreo(), productorNuevo.getCedula())+"\","+
+									"  \"perCorreo\": \""+Util.fixEmail( productorNuevo.getCorreo(), productorNuevo.getCedula())+"\","+
 									"  \"catIdTipoNac\": "+catidtiponacionalidad+","+
 									"  \"perLugarNacRc\":\""+lugarnacimiento+"\","+ 
 									"  \"personaTipos\": ["+

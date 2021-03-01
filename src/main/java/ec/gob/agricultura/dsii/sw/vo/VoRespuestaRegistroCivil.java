@@ -27,6 +27,9 @@ public class VoRespuestaRegistroCivil {
 	private String fechaDefuncion;
 	private String nacionalidad;
 	private String origen;
+	/*CAMPOS AGREGADOS POR NUEVA FUENTE CGTIC*/
+	private Integer edad;
+	private String nombreEntidad;
 
 	public String getCalle() {
 		return calle;
@@ -120,6 +123,22 @@ public class VoRespuestaRegistroCivil {
 		return genero;
 	}
 
+	public Integer getEdad() {
+		return edad;
+	}
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
+
+	public String getNombreEntidad() {
+		return nombreEntidad;
+	}
+
+	public void setNombreEntidad(String nombreEntidad) {
+		this.nombreEntidad = nombreEntidad;
+	}
+
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
@@ -210,6 +229,19 @@ public class VoRespuestaRegistroCivil {
 
 	public void setFechaDefuncion(String fechaDefuncion) {
 		this.fechaDefuncion = fechaDefuncion;
+	}
+
+	@Override
+	public String toString() {
+		return "VoRespuestaRegistroCivil [calle=" + calle + ", codigoDomicilio=" + codigoDomicilio
+				+ ", condicionCedulado=" + condicionCedulado + ", conyuge=" + conyuge + ", nombrePadre=" + nombrePadre
+				+ ", nombreMadre=" + nombreMadre + ", domicilio=" + domicilio + ", error=" + error + ", codigoError="
+				+ codigoError + ", estadoCivil=" + estadoCivil + ", fechaInscripcionGenero=" + fechaInscripcionGenero
+				+ ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", instruccion=" + instruccion
+				+ ", lugarInscripcionGenero=" + lugarInscripcionGenero + ", lugarNacimiento=" + lugarNacimiento
+				+ ", NUI=" + NUI + ", nombre=" + nombre + ", numeroCasa=" + numeroCasa + ", sexo=" + sexo
+				+ ", fechaDefuncion=" + fechaDefuncion + ", nacionalidad=" + nacionalidad + ", origen=" + origen
+				+ ", edad=" + edad + ", nombreEntidad=" + nombreEntidad + "]";
 	}
 	
 	

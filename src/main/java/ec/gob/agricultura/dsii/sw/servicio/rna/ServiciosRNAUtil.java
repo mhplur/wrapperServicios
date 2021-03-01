@@ -41,6 +41,7 @@ import ec.gob.agricultura.dsii.sw.exception.MyInternalException;
 import ec.gob.agricultura.dsii.sw.servicio.rna.dto.TokenDto;
 import ec.gob.agricultura.dsii.sw.servicio.rna.dto.TokenResponseDTO;
 import ec.gob.agricultura.dsii.sw.vo.VoBeneficiario;
+import ec.gob.agricultura.dsii.sw.vo.VoRespuestaRegistroCivil;
 //import ec.gob.magap.sigs.repository.ParametroRepository;
 @Service
 public class ServiciosRNAUtil {
@@ -143,6 +144,21 @@ public class ServiciosRNAUtil {
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(parametersMap,
 				headers);
 		ResponseEntity<JsonNode> response = restTemplate.exchange(url, HttpMethod.GET, request, JsonNode.class);
+		return response.getBody();
+	}
+	public  VoRespuestaRegistroCivil buscarRegistroCivil(String cedula) {
+		String url = Config.obtenerValorParametro("REGISTRO_CIVIL_NEW") + "/" + cedula;
+		//SY
+		String token=getToken().getAccess_token();
+		System.out.println("URL:" + url);
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.add("Authorization", "Bearer " + token);
+		MultiValueMap<String, String> parametersMap = new LinkedMultiValueMap<String, String>();
+		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(parametersMap,
+				headers);
+		ResponseEntity<VoRespuestaRegistroCivil> response = restTemplate.exchange(url, HttpMethod.GET, request, VoRespuestaRegistroCivil.class);
 		return response.getBody();
 	}
 
