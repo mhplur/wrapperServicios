@@ -98,7 +98,6 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 				return response;
 			}
 		} catch (Exception e) {
-			//registrar datos al rna 
 			try {
 				JsonNode data=srna.crearProductor(beneficiario, null);
 				System.out.println("----------------------------- PRODUCTOR CREADO ------------------------------------------");
