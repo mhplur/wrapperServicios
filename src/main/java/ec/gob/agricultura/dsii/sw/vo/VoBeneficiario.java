@@ -20,7 +20,7 @@ public class VoBeneficiario {
 	@NotNull(message = "Los nombres son obligatorios")
 	private String direccion;
 	
-	@NotNull(message = "Los nombres son obligatorio")
+	@NotNull(message = "El télefon es obligatorio")
 	private String telefono;
 	
 	private String celular;
@@ -34,6 +34,7 @@ public class VoBeneficiario {
 	
 	private String genero;
 	private String estadoCivil;
+	//verificar si me puede enviar el id de la parroquia, si no puede enviar 1 por defecto
 	@NotNull(message = "El id del domicilio es obligatorio")
 	private String ubiIdDomicilio;
 
