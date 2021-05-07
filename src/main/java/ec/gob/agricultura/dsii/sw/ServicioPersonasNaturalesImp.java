@@ -29,7 +29,7 @@ import javax.xml.ws.http.HTTPException;
 public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	@Deprecated
 	@Override
-	public VoBeneficiarioResponse consultarOld(String cedula) {
+	public VoBeneficiarioResponse consultar(String cedula) {
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
 		AuthTokenImpl token= new AuthTokenImpl();
 		AuthTokenVo authTokenVo= token.solicitarToken();
@@ -38,7 +38,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	}
 	@Deprecated
 	@Override
-	public VoBeneficiarioResponse registrarOld(VoBeneficiario beneficiario) {
+	public VoBeneficiarioResponse registrar(VoBeneficiario beneficiario) {
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
 		AuthTokenImpl token= new AuthTokenImpl();
 		AuthTokenVo authTokenVo= token.solicitarToken();
@@ -50,7 +50,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	 * SERVICIOS ENRUTADOS AL RNA
 	 */
 	@Override
-	public VoBeneficiarioResponse consultar(String cedula) {
+	public VoBeneficiarioResponse consultarNew(String cedula) {
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
 		ServiciosRNAUtil srna = new ServiciosRNAUtil();
 		try {
@@ -72,7 +72,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	}
 
 	@Override
-	public VoBeneficiarioResponse registrar(@Valid VoBeneficiario beneficiario) {
+	public VoBeneficiarioResponse registrarNew(@Valid VoBeneficiario beneficiario) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 		Set<ConstraintViolation<VoBeneficiario>> constraintViolations = validator.validate(beneficiario);

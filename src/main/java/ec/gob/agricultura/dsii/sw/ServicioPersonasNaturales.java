@@ -14,14 +14,14 @@ import ec.gob.agricultura.dsii.sw.vo.VoBeneficiarioResponse;
 @WebService(name="ServicioPersonasNaturales")
 public interface ServicioPersonasNaturales {
 	@Deprecated
-	@WebMethod(operationName="consultarOld")
+	@WebMethod(operationName="consultarNew")
 	@WebResult(name="response")
-	VoBeneficiarioResponse consultarOld(@WebParam(name="cedula")String cedula);
+	VoBeneficiarioResponse consultarNew(@WebParam(name="cedula")String cedula);
 	
 	@Deprecated
-	@WebMethod(operationName="registrarOld")
+	@WebMethod(operationName="registrarNew")
 	@WebResult(name="response")
-	VoBeneficiarioResponse registrarOld(@WebParam(name="cedula")VoBeneficiario beneficiario);
+	VoBeneficiarioResponse registrarNew(@WebParam(name="cedula")VoBeneficiario beneficiario);
 	
 	
 	@WebMethod(operationName="consultar")
