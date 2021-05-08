@@ -43,6 +43,7 @@ public class AuthTokenImpl {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		return headers;
+		
 	}
 
 	// * Add HTTP Authorization header, using Basic-Authentication to send

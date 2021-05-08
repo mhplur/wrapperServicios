@@ -6,7 +6,7 @@ public class Config {
 	/**
 	 * DEV/PROD/TEST
 	 * */
-	public static final String ENVIRONMENT_CONFIG="TEST";
+	public static final String ENVIRONMENT_CONFIG="PROD";
 	
 	public  static String obtenerValorParametro(String nombreParametro) {
 		if(ENVIRONMENT_CONFIG.equalsIgnoreCase("DEV"))

@@ -22,6 +22,40 @@ import ec.gob.agricultura.dsii.util.CleanData;
 
 public class ServiciosInternosImpl implements ServiciosInternos {
 
+	@Override
+	public SumResponse consultaRegistroCivil(SumRequest request) {
+			SumResponse sumResponse = new SumResponse();
+			ServiciosRNAUtil srna = new ServiciosRNAUtil();
+			VoRespuestaRegistroCivil data = new VoRespuestaRegistroCivil();
+			try {
+				
+				data = srna.buscarRegistroCivil(request.getParametro());
+				data=CleanData.cleanDatosRegistroCivil(data);
+			} catch (HttpServerErrorException e) {
+				if(e.getStatusCode()==HttpStatus.INTERNAL_SERVER_ERROR)
+				{
+					data.setCodigoError("505");
+					data.setError("Se ha detectado un problema con el servicio de busqueda del registro civil CGTIC, verifique el número de cédula. En el caso de que el número de cédula sea valido y el problema persiste probablemente se deben a problemas con el origen de los datos del registro civil DINARDAP");
+				}
+				if(e.getStatusCode()==HttpStatus.NOT_FOUND)
+				{
+					data.setCodigoError("404");
+					data.setError("El beneficiario con número de cédula "+request.getParametro()+" no existe");
+				}		
+			}
+			catch (Exception  ex) {
+				ex.printStackTrace();
+				data.setCodigoError("500");
+				data.setError("Error en wrapperServicios, solicite revisar el funcionamiento del servicio que administra la CGTIC"+ex.getMessage().toString());
+			}
+
+			System.out.println("respuesta registro civil");
+			System.out.println(data.toString());
+			sumResponse.setRespuestaRegistroCivil(data);
+			return sumResponse;
+	}
+	
+/*
 	@Deprecated
 	@Override
 	public SumResponse consultaRegistroCivilOld(SumRequest request) {
@@ -33,41 +67,10 @@ public class ServiciosInternosImpl implements ServiciosInternos {
 		sumResponse.setRespuestaRegistroCivil(registroCivil);
 		return sumResponse;
 	}
-
+*/
 	/**
 	 * CONSULTA DE LA NUEVA FUENTE ADMINISTRADA POR CGTIC
 	 */
-	@Override
-	public SumResponse consultaRegistroCivil(SumRequest request) {
-		SumResponse sumResponse = new SumResponse();
-		ServiciosRNAUtil srna = new ServiciosRNAUtil();
-		VoRespuestaRegistroCivil data = new VoRespuestaRegistroCivil();
-		try {
-			
-			data = srna.buscarRegistroCivil(request.getParametro());
-			data=CleanData.cleanDatosRegistroCivil(data);
-		} catch (HttpServerErrorException e) {
-			if(e.getStatusCode()==HttpStatus.INTERNAL_SERVER_ERROR)
-			{
-				data.setCodigoError("505");
-				data.setError("Se ha detectado un problema con el servicio de busqueda del registro civil CGTIC, verifique el número de cédula. En el caso de que el número de cédula sea valido y el problema persiste probablemente se deben a problemas con el origen de los datos del registro civil DINARDAP");
-			}
-			if(e.getStatusCode()==HttpStatus.NOT_FOUND)
-			{
-				data.setCodigoError("404");
-				data.setError("El beneficiario con número de cédula "+request.getParametro()+" no existe");
-			}		
-		}
-		catch (Exception  ex) {
-			data.setCodigoError("500");
-			data.setError("Error en wrapperServicios, solicite revisar el funcionamiento del servicio que administra la CGTIC"+ex.getMessage().toString());
-		}
-
-		System.out.println("respuesta registro civil");
-		System.out.println(data.toString());
-		sumResponse.setRespuestaRegistroCivil(data);
-		return sumResponse;
-
-	}
+	
 
 }

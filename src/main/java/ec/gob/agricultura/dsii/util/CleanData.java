@@ -6,7 +6,7 @@ public class CleanData {
 
 	public static VoRespuestaRegistroCivil cleanDatosRegistroCivil(VoRespuestaRegistroCivil data) {
 		if (data.getNUI() != "" && data.getNUI() != null) {
-			if (data.getGenero() == null)
+			if (data.getGenero() == null && data.getSexo()!=null)
 				if (data.getSexo().equals("HOMBRE"))
 					data.setGenero("MASCULINO");
 				else

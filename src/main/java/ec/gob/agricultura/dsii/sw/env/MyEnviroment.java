@@ -7,7 +7,7 @@ public class MyEnviroment {
 		if(nombreParametro.equalsIgnoreCase("VALIDAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_validacion-0.0.1/validate/productor";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_OLD"))
-			return "http://10.10.1.18:8080/wsministerial";
+			return "http://10.10.1.17:8080/wsministerial";
 		else if(nombreParametro.equalsIgnoreCase("BUSCAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_persona-0.0.1/productor/findByCedulaProductor";
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
@@ -80,7 +80,7 @@ public class MyEnviroment {
 		if(nombreParametro.equalsIgnoreCase("VALIDAR_PRODUCTOR"))
 			return "http://192.168.1.20:8080/micro_validacion-0.0.1/validate/productor";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_OLD"))
-			return "http://10.10.1.18:8080/wsministerial";
+			return "http://10.10.1.17:8080/wsministerial";
 		else if(nombreParametro.equalsIgnoreCase("BUSCAR_PRODUCTOR"))
 			return "http://192.168.1.20:8080/micro_persona-0.0.1/productor/findByCedulaProductor";
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
@@ -91,19 +91,19 @@ public class MyEnviroment {
 			return "http://192.168.1.20:8080/servicio_seguridad-0.0.1/api/oauth/token"; //poner la local
 		
 		else if(nombreParametro.equalsIgnoreCase("username_apli"))
-			return "us_sias_sg";
+			return "us_servmag";
 		else if(nombreParametro.equalsIgnoreCase("password_apli"))
-			return "08d81b13d6d6c1ee";
+			return "bdc8bd6bd776b48a2a";
 		else if(nombreParametro.equalsIgnoreCase("username"))
-			return "1722295126";
+			return "9999999901";
 		else if(nombreParametro.equalsIgnoreCase("password"))
-			return "1e94d5b4201e454a39f71224b532e594";
+			return "dd81c37436ea3084cd828fd9e0753534";
 		else if(nombreParametro.equalsIgnoreCase("grant_type"))
 			return "password";
 		else if(nombreParametro.equalsIgnoreCase("idapli"))
-			return "17";
+			return "92";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_AUTH_SERVER_URI"))
-			return "http://10.10.1.18:8080/wsministerial/oauth/token";
+			return "http://10.10.1.17:8080/wsministerial/oauth/token";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_PASSWORD_GRANT"))
 			return "?grant_type=password&username=userprueba&password=acceso";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_ACCESS_TOKEN"))
