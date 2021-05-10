@@ -16,12 +16,12 @@ public interface ServicioPersonasNaturales {
 	@Deprecated
 	@WebMethod(operationName="consultarNew")
 	@WebResult(name="response")
-	VoBeneficiarioResponse consultarNew(@WebParam(name="cedula")String cedula);
+	VoBeneficiarioResponse consultarOld(@WebParam(name="cedula")String cedula);
 	
 	@Deprecated
 	@WebMethod(operationName="registrarNew")
 	@WebResult(name="response")
-	VoBeneficiarioResponse registrarNew(@WebParam(name="cedula")VoBeneficiario beneficiario);
+	VoBeneficiarioResponse registrarOld(@WebParam(name="cedula")VoBeneficiario beneficiario);
 	
 	
 	@WebMethod(operationName="consultar")
