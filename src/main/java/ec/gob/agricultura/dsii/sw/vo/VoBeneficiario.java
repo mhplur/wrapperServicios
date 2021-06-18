@@ -4,6 +4,9 @@ package ec.gob.agricultura.dsii.sw.vo;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
+import net.shibboleth.utilities.java.support.annotation.constraint.NotEmpty;
 public class VoBeneficiario {
 	@NotNull(message = "La cedula es obligatorio")
 	private String cedula;
@@ -17,7 +20,8 @@ public class VoBeneficiario {
 	@Email(message = "Correo no valido")
 	private String correo;
 	
-	@NotNull(message = "Los nombres son obligatorios")
+	@NotNull(message = "Los direccion es obligatorio")
+	@NotBlank(message = "Los direccion es obligatorio")
 	private String direccion;
 	
 	@NotNull(message = "El télefon es obligatorio")
@@ -30,6 +34,8 @@ public class VoBeneficiario {
 	@NotNull(message = "La fecha de nacimiento es obligatoria")
 	private String fechaNacimiento;
 	
+	private String lugarNacimiento;
+	
 	//CAMPOS NUEVOS
 	
 	private String genero;
@@ -40,6 +46,14 @@ public class VoBeneficiario {
 
 	public String getCedula() {
 		return cedula;
+	}
+
+	public String getLugarNacimiento() {
+		return lugarNacimiento;
+	}
+
+	public void setLugarNacimiento(String lugarNacimiento) {
+		this.lugarNacimiento = lugarNacimiento;
 	}
 
 	public void setCedula(String cedula) {
@@ -140,6 +154,23 @@ public class VoBeneficiario {
 
 	public void setUbiIdDomicilio(String ubiIdDomicilio) {
 		this.ubiIdDomicilio = ubiIdDomicilio;
+	}
+
+	@Override
+	public String toString() {
+		return "VoBeneficiario [cedula=" + cedula + ", apellidos=" + apellidos + ", nombres=" + nombres
+				+ ", nombresApellidosCompletos=" + nombresApellidosCompletos + ", correo=" + correo + ", direccion="
+				+ direccion + ", telefono=" + telefono + ", celular=" + celular + ", codInecParroquia="
+				+ codInecParroquia + ", fechaNacimiento=" + fechaNacimiento + ", lugarNacimiento=" + lugarNacimiento
+				+ ", genero=" + genero + ", estadoCivil=" + estadoCivil + ", ubiIdDomicilio=" + ubiIdDomicilio
+				+ ", getCedula()=" + getCedula() + ", getLugarNacimiento()=" + getLugarNacimiento()
+				+ ", getApellidos()=" + getApellidos() + ", getNombres()=" + getNombres()
+				+ ", getNombresApellidosCompletos()=" + getNombresApellidosCompletos() + ", getCorreo()=" + getCorreo()
+				+ ", getDireccion()=" + getDireccion() + ", getTelefono()=" + getTelefono() + ", getCelular()="
+				+ getCelular() + ", getCodInecParroquia()=" + getCodInecParroquia() + ", getFechaNacimiento()="
+				+ getFechaNacimiento() + ", getGenero()=" + getGenero() + ", getEstadoCivil()=" + getEstadoCivil()
+				+ ", getUbiIdDomicilio()=" + getUbiIdDomicilio() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 	

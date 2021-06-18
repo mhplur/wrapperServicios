@@ -15,7 +15,7 @@ public class CleanData {
 			if (data.getEstadoCivil() == null)
 				data.setEstadoCivil("SOLTERO");
 			if (data.getDomicilio() == null)
-				data.setDomicilio("NI/NI/NI");
+				data.setDomicilio("");
 			
 			data.setCalle((data.getCalle() != null ? data.getCalle().trim() : data.getCalle()));
 			data.setCodigoDomicilio(

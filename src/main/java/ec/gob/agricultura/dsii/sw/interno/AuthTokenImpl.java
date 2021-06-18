@@ -27,8 +27,8 @@ import ec.gob.agricultura.dsii.sw.vo.VoRespuestaSri;
 @Service
 public class AuthTokenImpl {
 	public static final String REST_SERVICE_URI_DR=Config.obtenerValorParametro("REGISTRO_CIVIL_NEW");;
-	public static final String REST_SERVICE_URI = Config.obtenerValorParametro("REGISTRO_CIVIL_OLD");//"http://10.10.1.18:8080/wsministerial";
-	public static final String AUTH_SERVER_URI = Config.obtenerValorParametro("CRED_WSMINIS_AUTH_SERVER_URI");//"http://10.10.1.18:8080/wsministerial/oauth/token";
+	public static final String REST_SERVICE_URI = Config.obtenerValorParametro("REGISTRO_CIVIL_OLD");//"http://10.10.1.33:8080/wsministerial";
+	public static final String AUTH_SERVER_URI = Config.obtenerValorParametro("CRED_WSMINIS_AUTH_SERVER_URI");//"http://10.10.1.33:8080/wsministerial/oauth/token";
 	public static final String QPM_PASSWORD_GRANT = Config.obtenerValorParametro("CRED_WSMINIS_QPM_PASSWORD_GRANT");//"?grant_type=password&username=userprueba&password=acceso";
 	public static final String QPM_ACCESS_TOKEN = Config.obtenerValorParametro("CRED_WSMINIS_QPM_ACCESS_TOKEN"); //"?access_token=";
 	Logger logger = Logger.getLogger(AuthTokenImpl.class.getName());
@@ -132,7 +132,7 @@ public class AuthTokenImpl {
 				 else respuesta.setGenero("FEMENINO");
 			
 		    if(respuesta.getEstadoCivil()==null) respuesta.setEstadoCivil("SOLTERO");
-			if(respuesta.getDomicilio()==null) respuesta.setDomicilio("NI/NI/NI");
+			if(respuesta.getDomicilio()==null) respuesta.setDomicilio("");
 			//depurar espacios
 			respuesta.setCalle((respuesta.getCalle()!=null?respuesta.getCalle().trim():respuesta.getCalle()));
 			respuesta.setCodigoDomicilio((respuesta.getCodigoDomicilio()!=null?respuesta.getCodigoDomicilio().trim():respuesta.getCodigoDomicilio()));

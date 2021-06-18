@@ -164,7 +164,7 @@ public class ServiciosRNAUtil {
 
 
 	public  JsonNode crearProductor(VoBeneficiario data, JsonNode informacionServicios)
-			throws JsonParseException, JsonMappingException, IOException {
+			throws Exception {
 		String url = Config.obtenerValorParametro("CREAR_PRODUCTOR");
 		String token=getToken().getAccess_token();
 		System.out.println("url servicio productor:"+url);

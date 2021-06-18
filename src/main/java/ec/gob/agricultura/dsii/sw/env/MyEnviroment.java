@@ -31,7 +31,7 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("idapli"))
 			return "17";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_AUTH_SERVER_URI"))
-			return "http://10.10.1.18:8080/wsministerial/oauth/token";
+			return "http://10.10.1.33:8080/wsministerial/oauth/token";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_PASSWORD_GRANT"))
 			return "?grant_type=password&username=userprueba&password=acceso";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_ACCESS_TOKEN"))
@@ -43,7 +43,7 @@ public class MyEnviroment {
 		if(nombreParametro.equalsIgnoreCase("VALIDAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_validacion-0.0.1/validate/productor";
 		else if(nombreParametro.equalsIgnoreCase("REGISTRO_CIVIL_OLD"))
-			return "http://10.10.1.18:8080/wsministerial";
+			return "http://10.10.1.33:8080/wsministerial";
 		else if(nombreParametro.equalsIgnoreCase("BUSCAR_PRODUCTOR"))
 			return "http://10.10.1.121:8080/micro_persona-0.0.1/productor/findByCedulaProductor";
 		else if(nombreParametro.equalsIgnoreCase("CREAR_PRODUCTOR"))
@@ -67,7 +67,7 @@ public class MyEnviroment {
 		else if(nombreParametro.equalsIgnoreCase("idapli"))
 			return "17";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_AUTH_SERVER_URI"))
-			return "http://10.10.1.18:8080/wsministerial/oauth/token";
+			return "http://10.10.1.33:8080/wsministerial/oauth/token";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_PASSWORD_GRANT"))
 			return "?grant_type=password&username=userprueba&password=acceso";
 		else if(nombreParametro.equalsIgnoreCase("CRED_WSMINIS_QPM_ACCESS_TOKEN"))

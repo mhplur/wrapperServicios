@@ -51,12 +51,13 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 	 */
 	@Override
 	public VoBeneficiarioResponse consultar(String cedula) {
+		System.out.println();
 		VoBeneficiarioResponse response=new VoBeneficiarioResponse();
 		ServiciosRNAUtil srna = new ServiciosRNAUtil();
 		try {
 			JsonNode data=srna.buscarDataProductor(cedula);
 			System.out.println(data.toString());
-			data=data.get(0);
+			//data=data.get(0);
 			Integer idProductor=data.get("perId").intValue();	
 			response.setBenId(idProductor);
 			response.setEstado("REGISTRADO");
@@ -73,6 +74,8 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 
 	@Override
 	public VoBeneficiarioResponse registrar(@Valid VoBeneficiario beneficiario) {
+		System.out.println("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZXXXXXXXXXXXX EMPEZANDO");
+		System.out.println(beneficiario.toString());
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 		Set<ConstraintViolation<VoBeneficiario>> constraintViolations = validator.validate(beneficiario);
@@ -89,7 +92,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 		try {
 			JsonNode data=srna.buscarDataProductor(beneficiario.getCedula());
 			System.out.println(data.toString());
-			data=data.get(0);
+			//data=data.get(0);
 			Integer idProductor=data.get("perId").intValue();	
 			if(idProductor!=null || idProductor>0) {
 				response.setBenId(idProductor);
@@ -123,7 +126,7 @@ public class ServicioPersonasNaturalesImp implements ServicioPersonasNaturales {
 				ex.printStackTrace();
 				response.setBenId(0);
 				response.setEstado("NO_REGISTRADO");
-				response.setObservacion("Beneficiario no registrado");
+				response.setObservacion("Beneficiario no registrado, "+ex.getCause().getMessage());
 			}	
 		} 
 		
