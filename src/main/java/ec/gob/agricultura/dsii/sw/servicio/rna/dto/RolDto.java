@@ -6,6 +6,7 @@ import java.util.List;
 public class RolDto {
 	private Integer idRol;
 	private String nombreRol;
+	private Integer tpefId;
 	private List<String> permisos;
 	public Integer getIdRol() {
 		return idRol;
@@ -25,6 +26,10 @@ public class RolDto {
 	public void setPermisos(List<String> permisos) {
 		this.permisos = permisos;
 	}
-	
-	
+	public Integer getTpefId() {
+		return tpefId;
+	}
+	public void setTpefId(Integer tpefId) {
+		this.tpefId = tpefId;
+	}
 }

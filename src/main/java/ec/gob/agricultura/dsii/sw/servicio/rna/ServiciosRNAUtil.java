@@ -76,7 +76,6 @@ public class ServiciosRNAUtil {
 		RestTemplate restTemplate = new RestTemplate();
 		final String url =Config.obtenerValorParametro("AUTH");
 		try {
-			URI uri = new URI(url);
 			MultiValueMap<String, String> parametersMap = new LinkedMultiValueMap<String, String>();
 			parametersMap.set("username", Config.obtenerValorParametro("username"));
 			parametersMap.set("password", Config.obtenerValorParametro("password"));
